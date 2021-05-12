@@ -1,0 +1,15 @@
+<div class="container"  *ngIf="loadedFeature === 'parent'">
+    <hr> <h4>Parent Component</h4> 
+    <hr> 
+    <div *ngFor="let person of persons">
+        <p>Id : {{person.id}}</p> 
+        <p>Full Name : {{person.firstName}}</p>
+        <p>Last Name : {{person.lastName}}</p>
+        <p>Age: {{person.age}}</p>
+        <hr> 
+    </div>
+    <div><button class="btn btn-primary" (click)="dataToTheChild()">Show Child</button></div><hr> 
+</div>
+
+<app-child-component [persons]="persons" (childData)="dataToTheChildParent()" *ngIf="loadedFeature === 'child'"></app-child-component>
+<div class="container"></div>
